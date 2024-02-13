@@ -24,7 +24,7 @@ class AlQuranClient {
     };
     return get(_uriHandler.getEditions(queryParameters: params)).then((result) {
       if (result is ApiSuccessList) {
-        return result.data.map((e) => QuranEditionMapper.fromMap(e)).toList();
+        return result.data.map((e) => QuranEdition.fromMap(e)).toList();
       } else {
         return [];
       }

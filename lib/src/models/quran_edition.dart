@@ -1,9 +1,6 @@
-import 'package:dart_mappable/dart_mappable.dart';
+import 'dart:convert';
 
-part 'quran_edition.mapper.dart';
-
-@MappableClass()
-class QuranEdition with QuranEditionMappable {
+class QuranEdition {
   final String identifier;
   final String language;
   final String name;
@@ -21,9 +18,37 @@ class QuranEdition with QuranEditionMappable {
     required this.type,
     required this.direction,
   });
+
+  factory QuranEdition.fromMap(Map<String, dynamic> map) {
+    return QuranEdition(
+      identifier: map["identifier"],
+      language: map["language"],
+      name: map["name"],
+      englishName: map["englishName"],
+      format: EditionFormat.valueOfOrNull(map["format"]) ?? EditionFormat.text,
+      type: EditionType.valueOfOrNull(map["type"]) ?? EditionType.quran,
+      direction: map["direction"],
+    );
+  }
+
+  factory QuranEdition.fromJson(String source) =>
+      QuranEdition.fromMap(jsonDecode(source));
+
+  Map<String, dynamic> toMap() {
+    return {
+      "identifier": identifier,
+      "language": language,
+      "name": name,
+      "englishName": englishName,
+      "format": format.name,
+      "type": type.name,
+      "direction": direction,
+    };
+  }
+
+  String toJson() => jsonEncode(toMap());
 }
 
-@MappableEnum()
 enum EditionType {
   tafsir,
   translation,
@@ -43,7 +68,6 @@ enum EditionType {
   }
 }
 
-@MappableEnum()
 enum EditionFormat {
   text,
   audio;
