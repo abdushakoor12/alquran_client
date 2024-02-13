@@ -16,7 +16,7 @@ class AlQuranClient {
     EditionFormat? format,
     String? language,
     EditionType? type,
-  }) async {
+  }) {
     final params = <String, String>{
       if (format != null) "format": format.name,
       if (language != null) "language": language,
@@ -28,6 +28,15 @@ class AlQuranClient {
       } else {
         return [];
       }
+    });
+  }
+
+  Future<List<String>> getEditionLanguages() {
+    return get(_uriHandler.getEditionLanguages()).then((result) {
+      if (result is ApiSuccessList) {
+        return result.data.map((e) => e.toString()).toList();
+      }
+      return [];
     });
   }
 }

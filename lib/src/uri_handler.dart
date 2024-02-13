@@ -9,4 +9,8 @@ class UriHandler {
   }) {
     return baseUri.replace(path: "/edition", queryParameters: queryParameters);
   }
+
+  Uri getEditionLanguages() {
+    return baseUri.replace(path: "/edition/language");
+  }
 }

@@ -41,6 +41,11 @@ class QuranEdition {
       direction: json["direction"],
     );
   }
+
+  @override
+  String toString() {
+    return "QuranEdition(identifier: $identifier, language: $language, name: $name, englishName: $englishName, format: $format, type: $type, direction: $direction)";
+  }
 }
 
 enum EditionType {
@@ -53,6 +58,17 @@ enum EditionType {
   final String id;
 
   const EditionType(this.id);
+
+  static EditionType? valueOfOrNull(String id) {
+    return switch (id) {
+      "tafsir" => EditionType.tafsir,
+      "translation" => EditionType.translation,
+      "transliteration " => EditionType.transliteration,
+      "quran" => EditionType.quran,
+      "versebyverse" => EditionType.versebyverse,
+      _ => null,
+    };
+  }
 }
 
 enum EditionFormat {
@@ -62,4 +78,12 @@ enum EditionFormat {
   final String name;
 
   const EditionFormat(this.name);
+
+  static EditionFormat? valueOfOrNull(String name) {
+    return switch (name) {
+      "text" => EditionFormat.text,
+      "audio" => EditionFormat.audio,
+      _ => null,
+    };
+  }
 }
