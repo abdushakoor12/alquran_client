@@ -1,0 +1,1 @@
+Client for [AlQuran.cloud API](https://alquran.cloud/api)
