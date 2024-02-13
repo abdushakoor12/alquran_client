@@ -15,7 +15,7 @@ Future<ApiResult> get(
         if (data is List) {
           return ApiSuccessList(data);
         } else if (data is Map) {
-          return ApiSuccessMap(data);
+          return ApiSuccessMap(data as Map<String, dynamic>);
         }
       }
     }
@@ -35,7 +35,7 @@ class ApiSuccessList extends ApiResult {
 }
 
 class ApiSuccessMap extends ApiResult {
-  final Map data;
+  final Map<String, dynamic> data;
 
   ApiSuccessMap(this.data);
 }

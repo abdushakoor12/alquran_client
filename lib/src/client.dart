@@ -1,5 +1,6 @@
 import 'package:alquran_client/src/get.dart';
 import 'package:alquran_client/src/models/quran_edition.dart';
+import 'package:alquran_client/src/models/quran_metadata.dart';
 import 'package:alquran_client/src/uri_handler.dart';
 
 class AlQuranClient {
@@ -27,6 +28,17 @@ class AlQuranClient {
         return result.data.map((e) => QuranEdition.fromMap(e)).toList();
       } else {
         return [];
+      }
+    });
+  }
+
+  /// get metadata of quran
+  Future<QuranMetadata?> getMetadata() {
+    return get(_uriHandler.getMetadata()).then((result) {
+      if (result is ApiSuccessMap) {
+        return QuranMetadata.fromMap(result.data);
+      } else {
+        return null;
       }
     });
   }
