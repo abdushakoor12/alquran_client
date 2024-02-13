@@ -71,7 +71,7 @@ enum EditionType {
   quran,
   versebyverse;
 
-  static EditionType? valueOfOrNull(String id) {
+  static EditionType? valueOfOrNull(String? id) {
     return switch (id) {
       "tafsir" => EditionType.tafsir,
       "translation" => EditionType.translation,
@@ -87,7 +87,7 @@ enum EditionFormat {
   text,
   audio;
 
-  static EditionFormat? valueOfOrNull(String name) {
+  static EditionFormat? valueOfOrNull(String? name) {
     return switch (name) {
       "text" => EditionFormat.text,
       "audio" => EditionFormat.audio,
@@ -138,7 +138,7 @@ enum EditionLanguage {
   ur,
   uz;
 
-  static EditionLanguage? valueOfOrNull(String name) {
+  static EditionLanguage? valueOfOrNull(String? name) {
     return switch (name) {
       "ar" => EditionLanguage.ar,
       "am" => EditionLanguage.am,
