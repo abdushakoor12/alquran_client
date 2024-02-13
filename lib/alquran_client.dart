@@ -1,4 +1,4 @@
-export 'src/al_quran_client.dart';
+export 'src/client.dart';
 
 // models
 export 'src/models/quran_edition.dart';
