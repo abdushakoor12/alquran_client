@@ -1,6 +1,7 @@
 import 'dart:convert';
+import 'package:equatable/equatable.dart';
 
-class QuranEdition {
+class QuranEdition extends Equatable {
   final String identifier;
   final EditionLanguage language;
   final String name;
@@ -48,6 +49,19 @@ class QuranEdition {
   }
 
   String toJson() => jsonEncode(toMap());
+
+  @override
+  List<Object?> get props {
+    return [
+      identifier,
+      language,
+      name,
+      englishName,
+      format,
+      type,
+      direction,
+    ];
+  }
 }
 
 enum EditionType {
