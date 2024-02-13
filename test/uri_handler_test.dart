@@ -1,4 +1,4 @@
-import 'package:alquran_client/src/urls.dart';
+import 'package:alquran_client/src/uri_handler.dart';
 import 'package:test/test.dart';
 
 void main() {
