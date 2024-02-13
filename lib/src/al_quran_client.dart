@@ -20,11 +20,11 @@ class AlQuranClient {
     final params = <String, String>{
       if (format != null) "format": format.name,
       if (language != null) "language": language,
-      if (type != null) "type": type.id,
+      if (type != null) "type": type.name,
     };
     return get(_uriHandler.getEditions(queryParameters: params)).then((result) {
       if (result is ApiSuccessList) {
-        return result.data.map((e) => QuranEdition.fromJson(e)).toList();
+        return result.data.map((e) => QuranEditionMapper.fromMap(e)).toList();
       } else {
         return [];
       }

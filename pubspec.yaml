@@ -8,9 +8,12 @@ environment:
 
 # Add regular dependencies here.
 dependencies:
+  dart_mappable: ^4.2.0
   http: ^1.2.0
   # path: ^1.8.0
 
 dev_dependencies:
+  build_runner: ^2.4.8
+  dart_mappable_builder: ^4.2.0
   lints: ^2.1.0
   test: ^1.24.0
