@@ -2,7 +2,7 @@ import 'dart:convert';
 
 class QuranEdition {
   final String identifier;
-  final String language;
+  final EditionLanguage language;
   final String name;
   final String englishName;
   final EditionFormat format;
@@ -22,7 +22,8 @@ class QuranEdition {
   factory QuranEdition.fromMap(Map<String, dynamic> map) {
     return QuranEdition(
       identifier: map["identifier"],
-      language: map["language"],
+      language:
+          EditionLanguage.valueOfOrNull(map["language"]) ?? EditionLanguage.en,
       name: map["name"],
       englishName: map["englishName"],
       format: EditionFormat.valueOfOrNull(map["format"]) ?? EditionFormat.text,
@@ -37,7 +38,7 @@ class QuranEdition {
   Map<String, dynamic> toMap() {
     return {
       "identifier": identifier,
-      "language": language,
+      "language": language.name,
       "name": name,
       "englishName": englishName,
       "format": format.name,
@@ -76,6 +77,95 @@ enum EditionFormat {
     return switch (name) {
       "text" => EditionFormat.text,
       "audio" => EditionFormat.audio,
+      _ => null,
+    };
+  }
+}
+
+enum EditionLanguage {
+  ar,
+  am,
+  az,
+  ber,
+  bn,
+  cs,
+  de,
+  dv,
+  en,
+  es,
+  fa,
+  fr,
+  ha,
+  hi,
+  id,
+  it,
+  ja,
+  ko,
+  ku,
+  ml,
+  nl,
+  no,
+  pl,
+  ps,
+  pt,
+  ro,
+  ru,
+  sd,
+  so,
+  sq,
+  sv,
+  sw,
+  ta,
+  tg,
+  th,
+  tr,
+  tt,
+  ug,
+  ur,
+  uz;
+
+  static EditionLanguage? valueOfOrNull(String name) {
+    return switch (name) {
+      "ar" => EditionLanguage.ar,
+      "am" => EditionLanguage.am,
+      "az" => EditionLanguage.az,
+      "ber" => EditionLanguage.ber,
+      "bn" => EditionLanguage.bn,
+      "cs" => EditionLanguage.cs,
+      "de" => EditionLanguage.de,
+      "dv" => EditionLanguage.dv,
+      "en" => EditionLanguage.en,
+      "es" => EditionLanguage.es,
+      "fa" => EditionLanguage.fa,
+      "fr" => EditionLanguage.fr,
+      "ha" => EditionLanguage.ha,
+      "hi" => EditionLanguage.hi,
+      "id" => EditionLanguage.id,
+      "it" => EditionLanguage.it,
+      "ja" => EditionLanguage.ja,
+      "ko" => EditionLanguage.ko,
+      "ku" => EditionLanguage.ku,
+      "ml" => EditionLanguage.ml,
+      "nl" => EditionLanguage.nl,
+      "no" => EditionLanguage.no,
+      "pl" => EditionLanguage.pl,
+      "ps" => EditionLanguage.ps,
+      "pt" => EditionLanguage.pt,
+      "ro" => EditionLanguage.ro,
+      "ru" => EditionLanguage.ru,
+      "sd" => EditionLanguage.sd,
+      "so" => EditionLanguage.so,
+      "sq" => EditionLanguage.sq,
+      "sv" => EditionLanguage.sv,
+      "sw" => EditionLanguage.sw,
+      "ta" => EditionLanguage.ta,
+      "tg" => EditionLanguage.tg,
+      "th" => EditionLanguage.th,
+      "tr" => EditionLanguage.tr,
+      "tt" => EditionLanguage.tt,
+      "ug" => EditionLanguage.ug,
+      "ur" => EditionLanguage.ur,
+      "uz" => EditionLanguage.uz,
       _ => null,
     };
   }

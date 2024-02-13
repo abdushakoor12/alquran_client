@@ -14,7 +14,7 @@ void main() async {
 
   final List<QuranEdition> editions = await client.getEditions(
     format: format == null ? null : EditionFormat.valueOfOrNull(format),
-    language: language,
+    language: language == null ? null : EditionLanguage.valueOfOrNull(language),
     type: type == null ? null : EditionType.valueOfOrNull(type),
   );
 

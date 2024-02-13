@@ -14,12 +14,12 @@ class AlQuranClient {
   /// if no parameters are provided, all editions will be returned
   Future<List<QuranEdition>> getEditions({
     EditionFormat? format,
-    String? language,
+    EditionLanguage? language,
     EditionType? type,
   }) {
     final params = <String, String>{
       if (format != null) "format": format.name,
-      if (language != null) "language": language,
+      if (language != null) "language": language.name,
       if (type != null) "type": type.name,
     };
     return get(_uriHandler.getEditions(queryParameters: params)).then((result) {
@@ -28,15 +28,6 @@ class AlQuranClient {
       } else {
         return [];
       }
-    });
-  }
-
-  Future<List<String>> getEditionLanguages() {
-    return get(_uriHandler.getEditionLanguages()).then((result) {
-      if (result is ApiSuccessList) {
-        return result.data.map((e) => e.toString()).toList();
-      }
-      return [];
     });
   }
 }
