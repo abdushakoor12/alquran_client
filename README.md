@@ -47,3 +47,16 @@ client.getEditions(
     direction: EditionDirection.ltr
 );
 ```
+
+## TODO
+
+- [ ] Juz
+- [x] Surah
+- [ ] Ayah
+- [ ] Search
+- [ ] Manzil
+- [ ] Ruku
+- [ ] Page
+- [ ] Hizb Quarter
+- [ ] Sajda
+- [x] Meta
