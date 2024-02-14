@@ -1,5 +1,6 @@
 import 'package:alquran_client/src/get.dart';
 import 'package:alquran_client/src/models/quran_edition.dart';
+import 'package:alquran_client/src/models/quran_full.dart';
 import 'package:alquran_client/src/models/quran_metadata.dart';
 import 'package:alquran_client/src/uri_handler.dart';
 
@@ -37,6 +38,20 @@ class AlQuranClient {
     return get(_uriHandler.getMetadata()).then((result) {
       if (result is ApiSuccessMap) {
         return QuranMetadata.fromMap(result.data);
+      } else {
+        return null;
+      }
+    });
+  }
+
+  /// get full quran based on edition id
+  /// [editionId] id of the edition that can be obtained from getEditions
+  Future<QuranFull?> getQuran({
+    required String editionId,
+  }) {
+    return get(_uriHandler.getQuran(editionId: editionId)).then((result) {
+      if (result is ApiSuccessMap) {
+        return QuranFull.fromMap(result.data);
       } else {
         return null;
       }
