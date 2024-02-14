@@ -72,7 +72,31 @@ class AlQuranClient {
     });
   }
 
+  /// get full quran based on edition
   Future<QuranFull?> getFullQuranByEdition(QuranEdition edition) {
     return getQuran(editionId: edition.identifier);
+  }
+
+  /// returns a single surah in arabic if no editionId is provided
+  /// [number] surah number between 1 and 114
+  Future<SurahModel?> getSurah(
+    int number, {
+    String? editionId,
+  }) {
+    return get(_uriHandler.getSurah(number, editionId)).then((result) {
+      if (result is ApiSuccessMap) {
+        return SurahModel.fromMap(result.data);
+      } else {
+        return null;
+      }
+    });
+  }
+
+  /// get surah based on edition
+  Future<SurahModel?> getSurahByEdition(
+    int number,
+    QuranEdition edition,
+  ) {
+    return getSurah(number, editionId: edition.identifier);
   }
 }

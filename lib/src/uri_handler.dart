@@ -18,4 +18,12 @@ class UriHandler {
   Uri getQuran({required String editionId}) {
     return baseUri.replace(path: "v1/quran/$editionId");
   }
+
+  Uri getSurah(int number, String? editionId) {
+    String path = "v1/surah/$number";
+    if (editionId != null) {
+      path += "/$editionId";
+    }
+    return baseUri.replace(path: path);
+  }
 }
