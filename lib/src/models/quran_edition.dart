@@ -8,7 +8,7 @@ class QuranEdition extends Equatable {
   final String englishName;
   final EditionFormat format;
   final EditionType type;
-  final String? direction;
+  final EditionDirection? direction;
 
   const QuranEdition({
     required this.identifier,
@@ -29,7 +29,7 @@ class QuranEdition extends Equatable {
       englishName: map["englishName"],
       format: EditionFormat.valueOfOrNull(map["format"]) ?? EditionFormat.text,
       type: EditionType.valueOfOrNull(map["type"]) ?? EditionType.quran,
-      direction: map["direction"],
+      direction: EditionDirection.valueOfOrNull(map["direction"]),
     );
   }
 
@@ -44,7 +44,7 @@ class QuranEdition extends Equatable {
       "englishName": englishName,
       "format": format.name,
       "type": type.name,
-      "direction": direction,
+      "direction": direction?.name
     };
   }
 
@@ -180,6 +180,19 @@ enum EditionLanguage {
       "ug" => EditionLanguage.ug,
       "ur" => EditionLanguage.ur,
       "uz" => EditionLanguage.uz,
+      _ => null,
+    };
+  }
+}
+
+enum EditionDirection {
+  rtl,
+  ltr;
+
+  static EditionDirection? valueOfOrNull(String? name) {
+    return switch (name) {
+      "rtl" => EditionDirection.rtl,
+      "ltr" => EditionDirection.ltr,
       _ => null,
     };
   }

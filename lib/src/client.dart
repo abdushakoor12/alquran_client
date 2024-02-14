@@ -13,11 +13,14 @@ class AlQuranClient {
   /// [format] text or audio
   /// [language] language code like en, ar, fr, etc
   /// [type] tafsir, translation, transliteration, versebyverse, quran
+  /// [direction] rtl or ltr, note that this is only applicable for text format
+  /// when [direction] is not null, and format is audio, direction will be ignored
   /// if no parameters are provided, all editions will be returned
   Future<List<QuranEdition>> getEditions({
     EditionFormat? format,
     EditionLanguage? language,
     EditionType? type,
+    EditionDirection? direction,
   }) {
     final params = <String, String>{
       if (format != null) "format": format.name,
@@ -26,7 +29,18 @@ class AlQuranClient {
     };
     return get(_uriHandler.getEditions(queryParameters: params)).then((result) {
       if (result is ApiSuccessList) {
-        return result.data.map((e) => QuranEdition.fromMap(e)).toList();
+        return result.data
+            .map((edition) => QuranEdition.fromMap(edition))
+            .where((e) {
+          if (direction != null) {
+            if (format != EditionFormat.audio) {
+              return e.direction == direction;
+            } else {
+              return true;
+            }
+          }
+          return true;
+        }).toList();
       } else {
         return [];
       }

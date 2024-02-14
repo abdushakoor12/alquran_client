@@ -11,15 +11,19 @@ void main() async {
   print(
       'Enter the type (tafsir, translation, transliteration, versebyverse, quran):');
   final type = stdin.readLineSync();
+  print('Enter the direction (rtl or ltr):');
+  final direction = stdin.readLineSync();
 
   final List<QuranEdition> editions = await client.getEditions(
     format: format == null ? null : EditionFormat.valueOfOrNull(format),
     language: language == null ? null : EditionLanguage.valueOfOrNull(language),
     type: type == null ? null : EditionType.valueOfOrNull(type),
+    direction:
+        direction == null ? null : EditionDirection.valueOfOrNull(direction),
   );
 
   for (final edition in editions) {
-    print(edition);
+    print(edition.direction);
   }
   print('Total editions: ${editions.length}');
 }
