@@ -58,7 +58,7 @@ class SurahModel extends Equatable {
       englishNameTranslation: map["englishNameTranslation"],
       revelationType: map["revelationType"],
       ayahs: ayahs,
-      numberOfAyahs: ayahs.length,
+      numberOfAyahs: map["numberOfAyahs"] ?? ayahs.length,
     );
   }
 
@@ -70,6 +70,7 @@ class SurahModel extends Equatable {
       "englishNameTranslation": englishNameTranslation,
       "revelationType": revelationType,
       "ayahs": ayahs.map((e) => e.toMap()).toList(growable: false),
+      "numberOfAyahs": numberOfAyahs,
     };
   }
 
