@@ -6,17 +6,17 @@ void main() {
     test('getEditions', () async {
       final UriHandler uriHandler = UriHandler();
 
-      const simpleUrl = "https://api.alquran.cloud/edition";
+      const simpleUrl = "https://api.alquran.cloud/v1/edition";
       expect(uriHandler.getEditions().toString(), simpleUrl);
 
-      const urlWithQuery = "https://api.alquran.cloud/edition?language=ar";
+      const urlWithQuery = "https://api.alquran.cloud/v1/edition?language=ar";
       expect(
           uriHandler
               .getEditions(queryParameters: {"language": "ar"}).toString(),
           urlWithQuery);
 
       const urlWithMultipleQuery =
-          "https://api.alquran.cloud/edition?language=ar&format=text";
+          "https://api.alquran.cloud/v1/edition?language=ar&format=text";
       expect(
           uriHandler.getEditions(queryParameters: {
             "language": "ar",
