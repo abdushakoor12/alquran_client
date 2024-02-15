@@ -1,3 +1,5 @@
+[![alquran_client](https://img.shields.io/pub/v/alquran_client.svg)](https://pub.dev/packages/alquran_client)
+
 Client for [AlQuran.cloud API](https://alquran.cloud/api)
 
 ## Usage
