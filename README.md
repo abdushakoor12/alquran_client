@@ -26,7 +26,7 @@ client.getEditions(
 );
 ```
 
-#### Editions by Type (tafsir, translation, transliteration,quran,versebyverse)
+#### Editions by Type (tafsir, translation, transliteration, quran, versebyverse)
 
 ```dart
 client.getEditions(
