@@ -52,10 +52,7 @@ client.getEditions(
 
 ## TODO
 
-- [x] Editions
-- [x] Quran (Complete Edition)
 - [ ] Juz
-- [x] Surah
 - [ ] Ayah
 - [ ] Search
 - [ ] Manzil
@@ -63,4 +60,3 @@ client.getEditions(
 - [ ] Page
 - [ ] Hizb Quarter
 - [ ] Sajda
-- [x] Meta
