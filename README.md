@@ -52,10 +52,7 @@ client.getEditions(
 
 ## TODO
 
-- [x] Editions
-- [x] Quran (Complete Edition)
 - [ ] Juz
-- [x] Surah
 - [ ] Ayah
 - [ ] Search
 - [ ] Manzil
