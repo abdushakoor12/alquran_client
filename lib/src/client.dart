@@ -116,4 +116,16 @@ class AlQuranClient {
       },
     );
   }
+
+  // returns a list of all the ayahs that have sajda in quran
+  Future<List<SingleAyahModel>> getSajdaAyahs(String editionId) {
+    return get(_uriHandler.getSajdaAyahs(editionId)).then((result) {
+      if (result is ApiSuccessMap) {
+        List ayahs = result.data["ayahs"];
+        return ayahs.map((ayah) => SingleAyahModel.fromMap(ayah)).toList();
+      } else {
+        return [];
+      }
+    });
+  }
 }

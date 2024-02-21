@@ -58,4 +58,3 @@ client.getEditions(
 - [ ] Ruku
 - [ ] Page
 - [ ] Hizb Quarter
-- [ ] Sajda

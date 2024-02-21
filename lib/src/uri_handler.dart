@@ -31,4 +31,11 @@ class UriHandler {
     String path = "v1/ayah/$ayahNumber/$editionId";
     return baseUri.replace(path: path);
   }
+
+  Uri getSajdaAyahs(String editionId) {
+    String path = "v1/sajda/$editionId";
+    final s = baseUri.replace(path: path);
+    print(s);
+    return s;
+  }
 }
