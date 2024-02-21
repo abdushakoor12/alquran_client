@@ -5,11 +5,8 @@ import 'package:equatable/equatable.dart';
 /// similar to [AyahModel] but with a [SingleSurahModel] and [QuranEdition] too
 class SingleAyahModel extends AyahModel {
   final SingleSurahModel surah;
-  final QuranEdition edition;
-
   const SingleAyahModel({
     required this.surah,
-    required this.edition,
     required int number,
     required String text,
     required int numberInSurah,
@@ -34,7 +31,6 @@ class SingleAyahModel extends AyahModel {
   factory SingleAyahModel.fromMap(Map<String, dynamic> map) {
     return SingleAyahModel(
       surah: SingleSurahModel.fromMap(map["surah"]),
-      edition: QuranEdition.fromMap(map["edition"]),
       number: map["number"],
       text: map["text"],
       numberInSurah: map["numberInSurah"],
@@ -51,7 +47,6 @@ class SingleAyahModel extends AyahModel {
   Map<String, dynamic> toMap() {
     return {
       "surah": surah.toMap(),
-      "edition": edition.toMap(),
       "number": number,
       "text": text,
       "numberInSurah": numberInSurah,
@@ -67,7 +62,6 @@ class SingleAyahModel extends AyahModel {
   @override
   List<Object?> get props => [
         surah,
-        edition,
         number,
         text,
         numberInSurah,
