@@ -2,6 +2,7 @@ import 'package:alquran_client/src/get.dart';
 import 'package:alquran_client/src/models/quran_edition.dart';
 import 'package:alquran_client/src/models/quran_full.dart';
 import 'package:alquran_client/src/models/quran_metadata.dart';
+import 'package:alquran_client/src/models/quran_page_model.dart';
 import 'package:alquran_client/src/models/single_ayah_model.dart';
 import 'package:alquran_client/src/uri_handler.dart';
 
@@ -125,6 +126,18 @@ class AlQuranClient {
         return ayahs.map((ayah) => SingleAyahModel.fromMap(ayah)).toList();
       } else {
         return [];
+      }
+    });
+  }
+
+  /// get a whole page of quran ranging from 1 to 604
+  Future<QuranPageModel?> getPage(int page, String editionId) {
+    assert(page >= 1 && page <= 604);
+    return get(_uriHandler.getPage(page, editionId)).then((result) {
+      if (result is ApiSuccessMap) {
+        return QuranPageModel.fromMap(result.data);
+      } else {
+        return null;
       }
     });
   }

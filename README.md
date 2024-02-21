@@ -56,5 +56,4 @@ client.getEditions(
 - [ ] Search
 - [ ] Manzil
 - [ ] Ruku
-- [ ] Page
 - [ ] Hizb Quarter

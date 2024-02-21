@@ -38,4 +38,9 @@ class UriHandler {
     print(s);
     return s;
   }
+
+  Uri getPage(int page, String editionId) {
+    String path = "v1/page/$page/$editionId";
+    return baseUri.replace(path: path);
+  }
 }
