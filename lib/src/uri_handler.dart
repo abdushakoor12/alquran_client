@@ -26,4 +26,9 @@ class UriHandler {
     }
     return baseUri.replace(path: path);
   }
+
+  Uri getAyah(ayahNumber, String editionId) {
+    String path = "v1/ayah/$ayahNumber/$editionId";
+    return baseUri.replace(path: path);
+  }
 }

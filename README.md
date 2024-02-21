@@ -53,7 +53,6 @@ client.getEditions(
 ## TODO
 
 - [ ] Juz
-- [ ] Ayah
 - [ ] Search
 - [ ] Manzil
 - [ ] Ruku

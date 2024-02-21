@@ -2,6 +2,7 @@ import 'package:alquran_client/src/get.dart';
 import 'package:alquran_client/src/models/quran_edition.dart';
 import 'package:alquran_client/src/models/quran_full.dart';
 import 'package:alquran_client/src/models/quran_metadata.dart';
+import 'package:alquran_client/src/models/single_ayah_model.dart';
 import 'package:alquran_client/src/uri_handler.dart';
 
 class AlQuranClient {
@@ -98,5 +99,21 @@ class AlQuranClient {
     QuranEdition edition,
   ) {
     return getSurah(number, editionId: edition.identifier);
+  }
+
+  /// get single ayah based on ediiton and ayah number
+  Future<SingleAyahModel?> getAyah(
+    int ayahNumberInQuran, {
+    required String editionId,
+  }) {
+    return get(_uriHandler.getAyah(ayahNumberInQuran, editionId)).then(
+      (result) {
+        if (result is ApiSuccessMap) {
+          return SingleAyahModel.fromMap(result.data);
+        } else {
+          return null;
+        }
+      },
+    );
   }
 }
