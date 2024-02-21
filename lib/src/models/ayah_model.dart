@@ -11,7 +11,7 @@ class AyahModel extends Equatable {
   final int hizbQuarter;
   final SajdaModel? sajda;
 
-  AyahModel({
+  const AyahModel({
     required this.number,
     required this.text,
     required this.numberInSurah,
