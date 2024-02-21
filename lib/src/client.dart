@@ -3,6 +3,7 @@ import 'package:alquran_client/src/models/quran_edition.dart';
 import 'package:alquran_client/src/models/quran_full.dart';
 import 'package:alquran_client/src/models/quran_metadata.dart';
 import 'package:alquran_client/src/models/quran_page_model.dart';
+import 'package:alquran_client/src/models/quran_ruku_model.dart';
 import 'package:alquran_client/src/models/single_ayah_model.dart';
 import 'package:alquran_client/src/uri_handler.dart';
 
@@ -136,6 +137,18 @@ class AlQuranClient {
     return get(_uriHandler.getPage(page, editionId)).then((result) {
       if (result is ApiSuccessMap) {
         return QuranPageModel.fromMap(result.data);
+      } else {
+        return null;
+      }
+    });
+  }
+
+  /// get a whole ruku of quran ranging from 1 to 556
+  Future<QuranRukuModel?> getRuku(int number, String editionId) {
+    assert(number >= 1 && number <= 556);
+    return get(_uriHandler.getRuku(number, editionId)).then((result) {
+      if (result is ApiSuccessMap) {
+        return QuranRukuModel.fromMap(result.data);
       } else {
         return null;
       }

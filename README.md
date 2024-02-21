@@ -55,5 +55,4 @@ client.getEditions(
 - [ ] Juz
 - [ ] Search
 - [ ] Manzil
-- [ ] Ruku
 - [ ] Hizb Quarter

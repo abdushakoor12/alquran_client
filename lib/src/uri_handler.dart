@@ -43,4 +43,9 @@ class UriHandler {
     String path = "v1/page/$page/$editionId";
     return baseUri.replace(path: path);
   }
+
+  Uri getRuku(int ruku, String editionId) {
+    String path = "v1/ruku/$ruku/$editionId";
+    return baseUri.replace(path: path);
+  }
 }
