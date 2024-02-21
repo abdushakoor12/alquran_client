@@ -1,6 +1,9 @@
 import 'package:alquran_client/src/get.dart';
 import 'package:alquran_client/src/models/quran_edition.dart';
 import 'package:alquran_client/src/models/quran_full.dart';
+import 'package:alquran_client/src/models/quran_hizb_quarter_model.dart';
+import 'package:alquran_client/src/models/quran_juz_model.dart';
+import 'package:alquran_client/src/models/quran_manzil_model.dart';
 import 'package:alquran_client/src/models/quran_metadata.dart';
 import 'package:alquran_client/src/models/quran_page_model.dart';
 import 'package:alquran_client/src/models/quran_ruku_model.dart';
@@ -149,6 +152,42 @@ class AlQuranClient {
     return get(_uriHandler.getRuku(number, editionId)).then((result) {
       if (result is ApiSuccessMap) {
         return QuranRukuModel.fromMap(result.data);
+      } else {
+        return null;
+      }
+    });
+  }
+
+  /// get a whole juz of quran ranging from 1 to 30
+  Future<QuranJuzModel?> getJuz(int number, String editionId) {
+    assert(number >= 1 && number <= 30);
+    return get(_uriHandler.getJuz(number, editionId)).then((result) {
+      if (result is ApiSuccessMap) {
+        return QuranJuzModel.fromMap(result.data);
+      } else {
+        return null;
+      }
+    });
+  }
+
+  /// get a whole hizbQuarter of quran ranging from 1 to 240
+  Future<QuranHizbQuarterModel?> getHizbQuarter(int number, String editionId) {
+    assert(number >= 1 && number <= 240);
+    return get(_uriHandler.getHizb(number, editionId)).then((result) {
+      if (result is ApiSuccessMap) {
+        return QuranHizbQuarterModel.fromMap(result.data);
+      } else {
+        return null;
+      }
+    });
+  }
+
+  /// get a whole manzil of quran ranging from 1 to 7
+  Future<QuranManzilModel?> getManzil(int number, String editionId) {
+    assert(number >= 1 && number <= 7);
+    return get(_uriHandler.getManzil(number, editionId)).then((result) {
+      if (result is ApiSuccessMap) {
+        return QuranManzilModel.fromMap(result.data);
       } else {
         return null;
       }

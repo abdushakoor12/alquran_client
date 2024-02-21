@@ -52,7 +52,4 @@ client.getEditions(
 
 ## TODO
 
-- [ ] Juz
 - [ ] Search
-- [ ] Manzil
-- [ ] Hizb Quarter

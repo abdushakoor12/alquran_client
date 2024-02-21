@@ -48,4 +48,19 @@ class UriHandler {
     String path = "v1/ruku/$ruku/$editionId";
     return baseUri.replace(path: path);
   }
+
+  Uri getJuz(int juz, String editionId) {
+    String path = "v1/juz/$juz/$editionId";
+    return baseUri.replace(path: path);
+  }
+
+  Uri getHizb(int hizb, String editionId) {
+    String path = "v1/hizbQuarter/$hizb/$editionId";
+    return baseUri.replace(path: path);
+  }
+
+  Uri getManzil(int manzil, String editionId) {
+    String path = "v1/manzil/$manzil/$editionId";
+    return baseUri.replace(path: path);
+  }
 }
