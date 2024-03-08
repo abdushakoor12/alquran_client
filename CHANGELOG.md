@@ -1,3 +1,7 @@
+## Unreleased
+
+- Add all model exports to root file
+
 ## 0.0.3
 
 - Methods added for Juz, Surah, Ayah, Manzil, Ruku, Page, Hizb Quarter, Sajda
