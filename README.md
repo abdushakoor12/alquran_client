@@ -49,7 +49,3 @@ client.getEditions(
     direction: EditionDirection.ltr
 );
 ```
-
-## TODO
-
-- [ ] Search

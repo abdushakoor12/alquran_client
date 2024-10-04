@@ -7,6 +7,7 @@ import 'package:alquran_client/src/models/quran_manzil_model.dart';
 import 'package:alquran_client/src/models/quran_metadata.dart';
 import 'package:alquran_client/src/models/quran_page_model.dart';
 import 'package:alquran_client/src/models/quran_ruku_model.dart';
+import 'package:alquran_client/src/models/search_match.dart';
 import 'package:alquran_client/src/models/single_ayah_model.dart';
 import 'package:alquran_client/src/uri_handler.dart';
 
@@ -190,6 +191,20 @@ class AlQuranClient {
         return QuranManzilModel.fromMap(result.data);
       } else {
         return null;
+      }
+    });
+  }
+
+  Future<List<SearchMatch>> search(
+      String keyword, SearchType searchType, SearchBy searchBy) {
+    return get(_uriHandler.search(keyword, searchType, searchBy))
+        .then((result) {
+      if (result is ApiSuccessMap) {
+        return (result.data["matches"] as List)
+            .map((e) => SearchMatch.fromMap(e))
+            .toList();
+      } else {
+        return [];
       }
     });
   }

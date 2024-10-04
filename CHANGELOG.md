@@ -1,6 +1,8 @@
 ## Unreleased
 
 - Add all model exports to root file
+- Add search method
+- Json parsing in separate isolate
 
 ## 0.0.3
 
