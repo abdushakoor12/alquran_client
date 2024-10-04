@@ -1,5 +1,4 @@
 import 'package:alquran_client/alquran_client.dart';
-import 'package:alquran_client/src/models/ayah_model.dart';
 import 'package:equatable/equatable.dart';
 
 /// similar to [AyahModel] but with a [SingleSurahModel] and [QuranEdition] too
