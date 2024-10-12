@@ -2,9 +2,7 @@ import "dart:convert";
 
 import "package:http/http.dart" as http;
 
-Future<ApiResult> get(Uri uri,
-    {Map<String, String>? queryParameters,
-    bool useIsolateForParsing = false}) async {
+Future<ApiResult> get(Uri uri, {Map<String, String>? queryParameters}) async {
   try {
     final response = await http.get(uri);
 
