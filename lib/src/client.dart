@@ -1,14 +1,6 @@
+import 'package:alquran_client/alquran_client.dart';
 import 'package:alquran_client/src/get.dart';
-import 'package:alquran_client/src/models/quran_edition.dart';
-import 'package:alquran_client/src/models/quran_full.dart';
-import 'package:alquran_client/src/models/quran_hizb_quarter_model.dart';
-import 'package:alquran_client/src/models/quran_juz_model.dart';
-import 'package:alquran_client/src/models/quran_manzil_model.dart';
-import 'package:alquran_client/src/models/quran_metadata.dart';
-import 'package:alquran_client/src/models/quran_page_model.dart';
-import 'package:alquran_client/src/models/quran_ruku_model.dart';
 import 'package:alquran_client/src/models/search_match.dart';
-import 'package:alquran_client/src/models/single_ayah_model.dart';
 import 'package:alquran_client/src/uri_handler.dart';
 
 class AlQuranClient {

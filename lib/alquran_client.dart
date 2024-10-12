@@ -11,3 +11,4 @@ export 'src/models/quran_metadata.dart';
 export 'src/models/quran_page_model.dart';
 export 'src/models/quran_ruku_model.dart';
 export 'src/models/single_ayah_model.dart';
+export 'src/search.dart';

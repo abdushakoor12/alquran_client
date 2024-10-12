@@ -1,5 +1,4 @@
 import 'package:alquran_client/alquran_client.dart';
-import 'package:alquran_client/src/uri_handler.dart';
 
 Future<void> main() async {
   final client = AlQuranClient();
