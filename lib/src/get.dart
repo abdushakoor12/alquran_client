@@ -1,22 +1,14 @@
 import "dart:convert";
-import "dart:isolate";
 
 import "package:http/http.dart" as http;
 
 Future<ApiResult> get(Uri uri,
     {Map<String, String>? queryParameters,
-    bool useIsolateForParsing = true}) async {
+    bool useIsolateForParsing = false}) async {
   try {
     final response = await http.get(uri);
 
-    if (!useIsolateForParsing) {
-      return _parseResponse(response);
-    }
-
-    final apiResultFromIsolate = await Isolate.run(() async {
-      return _parseResponse(response);
-    });
-    return apiResultFromIsolate;
+    return _parseResponse(response);
   } catch (e, trace) {
     print("Failed to get editions: $e $trace");
     return ApiError(e);

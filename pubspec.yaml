@@ -1,6 +1,6 @@
 name: alquran_client
 description: A client for alquran.cloud API.
-version: 0.0.4
+version: 0.0.5
 repository: https://github.com/abdushakoor12/alquran_client
 
 environment:

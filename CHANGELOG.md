@@ -1,3 +1,6 @@
+## 0.0.5
+- removing isolate
+
 ## 0.0.4
 
 - Add all model exports to root file
